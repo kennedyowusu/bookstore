@@ -1,15 +1,18 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
-const SingleBook = () => (
+const SingleBook = ({ title, author }) => (
   <div>
+    <span>{title}</span>
+    <span>{author}</span>
 
-    <div>
-      <span>Book Title</span>
-      <span>Book Author</span>
-
-      <button type="submit">Remove Book</button>
-    </div>
+    <button type="submit">Remove Book</button>
   </div>
 );
+
+SingleBook.propTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+};
 
 export default SingleBook;

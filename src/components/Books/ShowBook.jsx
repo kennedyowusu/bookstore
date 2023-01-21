@@ -1,10 +1,13 @@
 import React from 'react';
 import SingleBook from './SingleBook';
 
-const showBook = () => (
+const showBook = ({ title, author }) => (
   <div>
     <h1>All Books</h1>
-    <SingleBook />
+    <SingleBook
+      title={title}
+      author={author}
+    />
   </div>
 );
 
