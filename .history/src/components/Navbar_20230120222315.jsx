@@ -1,0 +1,35 @@
+import React from 'react'
+import { NavLink, Link } from 'react-router-dom'
+import navLink from '../utils/constants'
+
+const Navbar = () => {
+ return (
+   <div>
+     <nav className='bg-[#ccc]-600'>
+       <div className='md:flex items-center justify-between bg-white py-4 md:py-5 md:px-14'>
+         <div className='font-bold text-2xl cursor-pointer flex items-center font-[Poppins] text-gray-800 justify-between px-5'>
+           <div
+             className='
+          flex items-center justify-between
+          '
+           >
+             <h2 className='text-[#317773]'>BookStore CMS</h2>
+           </div>
+         </div>
+
+         <div className='flex items-center justify-end w-full'>
+           <ul className='md:items-center gap-4 hidden md:flex lg:flex'>
+             {navLink.map((link) => (
+               <li key={link.name} className='md:ml-8 text-xl'>
+                 
+               </li>
+             ))}
+           </ul>
+         </div>
+       </div>
+     </nav>
+   </div>
+ )
+}
+
+export default Navbar

@@ -1,0 +1,27 @@
+import { Routes, Route } from 'react-router-dom';
+
+import Layout from './Layout/Layout';
+import Navbar from './components/Navbar';
+import AllBooks from './components/Books/AllBooks';
+import Categories from './components/Categories';
+
+function App() {
+  return (
+    <div
+      style={{
+        backgroundColor: '#f1f1f1',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Layout />} />
+        <Route path="/books" element={<AllBooks />} />
+      </Routes>
+    </div>
+  )
+}
+
+export default App;
