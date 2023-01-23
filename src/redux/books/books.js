@@ -9,9 +9,9 @@ const initialState = {
 };
 
 // This is a function that returns an action object
-const addBook = createAction(ADD_BOOK);
+export const addBook = createAction(ADD_BOOK);
 
-const removeBook = createAction(REMOVE_BOOK);
+export const removeBook = createAction(REMOVE_BOOK);
 
 // This is a reducer function that will handle the action
 const booksReducer = createReducer(initialState, (builder) => {
@@ -41,4 +41,4 @@ const booksReducer = createReducer(initialState, (builder) => {
   builder.addDefaultCase((state) => state);
 });
 
-export { addBook, removeBook, booksReducer };
+export default booksReducer;

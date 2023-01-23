@@ -19,4 +19,4 @@ const categoriesReducer = createReducer(initialState, (builder) => {
   builder.addDefaultCase((state) => state);
 });
 
-export { updateStatus, categoriesReducer };
+export default categoriesReducer;
