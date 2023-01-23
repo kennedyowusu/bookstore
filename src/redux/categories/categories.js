@@ -1,6 +1,6 @@
 import { createReducer, createAction } from '@reduxjs/toolkit';
 
-const UPDATE_STATUS = 'bookStore/categories/UPDATE_STATUS';
+export const UPDATE_STATUS = 'bookStore/categories/UPDATE_STATUS';
 
 const initialState = {
   categories: [],
