@@ -1,12 +1,15 @@
 import React from 'react';
 import SingleBook from './SingleBook';
 
-const showBook = ({ title, author }) => (
+const showBook = ({
+  id, title, author, category,
+}) => (
   <div>
-    <h1>All Books</h1>
     <SingleBook
+      id={id}
       title={title}
       author={author}
+      category={category}
     />
   </div>
 );
