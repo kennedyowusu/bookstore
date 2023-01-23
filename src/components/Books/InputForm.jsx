@@ -33,14 +33,11 @@ const InputForm = () => {
     setState({ ...state, title: e.target.value });
   };
 
-  const handleCategoryRef = (e) => {
-    setState({ ...state, category: e.target.value });
-  };
-
   const handleAuthorChange = (e) => {
     setState({ ...state, author: e.target.value });
   };
 
+  return (
     <div>
       <form action="" onSubmit={handleBookAddition}>
         <div>
@@ -59,7 +56,7 @@ const InputForm = () => {
             value={state.author}
           />
         </div>
-        <select ref={handleCategoryRef}>
+        <select>
           <option value="Action">Action</option>
           <option value="Biography">Biography</option>
           <option value="History">History</option>
@@ -67,7 +64,8 @@ const InputForm = () => {
         </select>
         <button type="submit">Add Book</button>
       </form>
-    </div>;
+    </div>
+  );
 };
 
 export default InputForm;

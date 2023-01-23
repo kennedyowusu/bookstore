@@ -8,30 +8,13 @@ const books = [
     title: 'The Hobbit',
     author: 'J.R.R. Tolkien',
   },
-  {
-    id: 2,
-    title: 'The Hobbit',
-    author: 'J.R.R. Tolkien',
-  },
-  {
-    id: 3,
-    title: 'The Hobbit',
-    author: 'J.R.R. Tolkien',
-  },
-  {
-    id: 4,
-    title: 'The Hobbit',
-    author: 'J.R.R. Tolkien',
-  },
 ];
 
 const AllBooks = () => (
   <div>
-    {
-      books.map((book) => (
-        <ShowBook key={book.id} title={book.title} author={book.author} />
-      ))
-    }
+    {books.map((book) => (
+      <ShowBook key={book.id} title={book.title} author={book.author} />
+    ))}
     <InputForm />
   </div>
 );
