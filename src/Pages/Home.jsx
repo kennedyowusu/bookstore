@@ -2,7 +2,7 @@ import React from 'react';
 import InputForm from '../components/Books/InputForm';
 import AllBookListedBooks from '../components/Books/AllBooks';
 
-const AllBooks = () => (
+const Home = () => (
   <section>
     <div>
       <AllBookListedBooks />
@@ -11,4 +11,4 @@ const AllBooks = () => (
   </section>
 );
 
-export default AllBooks;
+export default Home;

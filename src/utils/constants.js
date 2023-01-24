@@ -1,6 +1,6 @@
 const navLink = [
   {
-    name: 'Books',
+    name: 'Home',
     link: '/',
   },
   {

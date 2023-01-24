@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 
 import Layout from './appLayout/Layout';
-import AllBooks from './components/Books/AllBooks';
 import Categories from './Pages/Categories';
+import Home from './Pages/Home';
 import NotFound from './Pages/NotFound';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     >
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<AllBooks />} />
+          <Route path="/" element={<Home />} />
           <Route path="categories" element={<Categories />} />
           <Route path="*" element={<NotFound />} />
         </Route>
