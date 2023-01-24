@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 
 import Layout from './appLayout/Layout';
-import AllBooks from './Pages/AllBooks';
+import AllBooks from './components/Books/AllBooks';
 import Categories from './Pages/Categories';
 import NotFound from './Pages/NotFound';
 

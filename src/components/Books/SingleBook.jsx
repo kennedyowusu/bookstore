@@ -13,7 +13,7 @@ const SingleBook = ({
   };
 
   return (
-    <div
+    <li
       style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -24,14 +24,14 @@ const SingleBook = ({
         margin: '1rem',
       }}
     >
-      <li key={id}>
+      <div key={id}>
         <div>
-          <span>{ id}</span>
-          <span>{title}</span>
-          <span>{author}</span>
-          <span>{category}</span>
+          <h4>{ id}</h4>
+          <h4>{title}</h4>
+          <h3>{author}</h3>
+          <h3>{category}</h3>
 
-          <button type="submit" onClick={handleRemoveBook}>
+          <button type="button" onClick={handleRemoveBook}>
             Remove
           </button>
         </div>
@@ -39,15 +39,15 @@ const SingleBook = ({
           <span>Progress 80%</span>
         </div>
         <div>
-          <span>Update Progress</span>
+          <button type="button">Update Progress</button>
         </div>
-      </li>
-    </div>
+      </div>
+    </li>
   );
 };
 
 SingleBook.propTypes = {
-  // id: PropTypes.number.isRequired,
+  // id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
