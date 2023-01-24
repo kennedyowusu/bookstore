@@ -1,11 +1,38 @@
-import React from 'react'
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { UPDATE_STATUS } from '../redux/categories/categories';
 
 const Categories = () => {
- return (
-  <div>
-    <button type='submit'>Check Status</button>
-  </div>
- )
-}
+  const dispatch = useDispatch();
+  const checkStatus = useSelector((state) => state.categories);
 
-export default Categories
+  const handleStatus = () => {
+    dispatch(UPDATE_STATUS());
+  };
+
+  let status = '';
+  if (status.status && status.status !== '') {
+    status = (
+      <p>
+        {checkStatus.status}
+      </p>
+    );
+  } else {
+    status = {
+      status: 'Under Construction',
+    };
+  }
+
+  return (
+    <div>
+      <h2>
+        {checkStatus.status}
+      </h2>
+      <button type="submit" onClick={handleStatus}>
+        Check Status
+      </button>
+    </div>
+  );
+};
+
+export default Categories;
