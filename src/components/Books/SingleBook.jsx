@@ -23,10 +23,10 @@ const SingleBook = ({
         padding: '1rem',
         margin: '1rem',
       }}
+      id={id}
     >
-      <div key={id}>
+      <div>
         <div>
-          <h4>{ id}</h4>
           <h4>{title}</h4>
           <h3>{author}</h3>
           <h3>{category}</h3>
@@ -47,7 +47,7 @@ const SingleBook = ({
 };
 
 SingleBook.propTypes = {
-  // id: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,

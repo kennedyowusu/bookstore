@@ -9,7 +9,7 @@ const initialState = {
     {
       id: '1',
       title: 'The Hobbit',
-      author: 'J.R.R',
+      author: 'J.R.R. Tolkien',
       category: 'Action',
     },
   ],
@@ -24,12 +24,14 @@ export const removeBook = createAction(REMOVE_BOOK);
 const booksReducer = createReducer(initialState, (builder) => {
   builder.addCase(addBook, (state, action) => {
     const newBook = {
-      ...state, books: [...state.books, { ...action.payload, id: `${state.books.length + 1}` }],
+      // add the new book to the beginning of the array instead of the end
+      ...state, books: [{ ...action.payload, id: `${state.books.length + 1}` }, ...state.books],
     };
+    console.log(action.payload.id);
     return newBook;
   });
   builder.addCase(removeBook, (state, action) => {
-    const updatedBookList = [state.books].filter((book) => book.id !== action.payload);
+    const updatedBookList = [...state.books].filter((book) => book.id !== action.payload);
     return { ...state, books: updatedBookList };
   });
   builder.addDefaultCase((state) => state);

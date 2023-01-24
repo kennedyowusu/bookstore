@@ -9,6 +9,7 @@ const ShowBook = () => {
       {books.map((book) => (
         <SingleBook
           key={book.id}
+          id={book.id}
           title={book.title}
           author={book.author}
           category={book.category}
