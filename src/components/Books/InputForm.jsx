@@ -21,9 +21,6 @@ const InputForm = () => {
       setAuthor('');
       setCategory('Action');
     }
-    console.log(addBook({
-      title, author, category,
-    }));
   };
 
   const handleTitleChange = (e) => {

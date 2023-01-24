@@ -27,7 +27,6 @@ const booksReducer = createReducer(initialState, (builder) => {
       // add the new book to the beginning of the array instead of the end
       ...state, books: [{ ...action.payload, id: `${state.books.length + 1}` }, ...state.books],
     };
-    console.log(action.payload.id);
     return newBook;
   });
   builder.addCase(removeBook, (state, action) => {
