@@ -29,7 +29,7 @@ const booksReducer = createReducer(initialState, (builder) => {
     return newBook;
   });
   builder.addCase(removeBook, (state, action) => {
-    const updatedBookList = state.books.filter((book) => book.id !== action.payload);
+    const updatedBookList = [state.books].filter((book) => book.id !== action.payload);
     return { ...state, books: updatedBookList };
   });
   builder.addDefaultCase((state) => state);

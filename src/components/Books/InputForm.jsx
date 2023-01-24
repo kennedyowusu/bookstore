@@ -3,30 +3,34 @@ import { useDispatch } from 'react-redux';
 import { addBook } from '../../redux/books/books';
 
 const InputForm = () => {
-  const [state, setState] = useState(
-    {
-      id: 0,
-      title: '',
-      author: '',
-      category: '',
-    },
-  );
+  const [state, setState] = useState({
+    id: 0,
+    title: '',
+    author: '',
+    category: '',
+  });
   const dispatch = useDispatch();
+
+  // Validate input fields
+  const validate = () => {
+    if (state.title && state.author && state.category) {
+      return true;
+    }
+    return false;
+  };
 
   const handleBookAddition = (e) => {
     e.preventDefault();
     dispatch(addBook(state));
-    if (state.title && state.author) {
+    // validate input fields
+    if (validate()) {
       setState({
         id: state.id + 1,
-        title: ''.trim(),
-        author: ''.trim(),
-        category: ''.trim(),
+        title: '',
+        author: '',
+        category: '',
       });
-    } else {
-      return null;
     }
-    return null;
   };
 
   const handleTitleChange = (e) => {
