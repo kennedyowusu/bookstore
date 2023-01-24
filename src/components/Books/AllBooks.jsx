@@ -1,9 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import SingleBook from './SingleBook';
+import { fetchBooks } from '../../redux/books/books';
 
 const ShowBook = () => {
   const books = useSelector((state) => state.books.books);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [dispatch]);
+
   return (
     <div>
       {books.map((book) => (
@@ -15,6 +22,11 @@ const ShowBook = () => {
           category={book.category}
         />
       ))}
+      {
+        books.length === 0 && (
+          <h3>No books added yet!!</h3>
+        )
+      }
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../../redux/books/books';
+import { addBookToAPI } from '../../redux/books/books';
 
 const InputForm = () => {
   const [title, setTitle] = useState('');
@@ -16,7 +16,7 @@ const InputForm = () => {
       setValidateForm(true);
     } else {
       setValidateForm(false);
-      dispatch(addBook({ title, author, category }));
+      dispatch(addBookToAPI({ title, author, category }));
       setTitle('');
       setAuthor('');
       setCategory('Action');

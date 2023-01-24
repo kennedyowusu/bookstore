@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../../redux/books/books';
+import { removeBookFromAPI, fetchBooks } from '../../redux/books/books';
 
 const SingleBook = ({
   id, title, author, category,
@@ -9,7 +9,7 @@ const SingleBook = ({
   const dispatch = useDispatch();
 
   const handleRemoveBook = () => {
-    dispatch(removeBook(id));
+    dispatch(removeBookFromAPI(id));
   };
 
   return (
@@ -39,7 +39,7 @@ const SingleBook = ({
           <span>Progress 80%</span>
         </div>
         <div>
-          <button type="button">Update Progress</button>
+          <button type="button" onClick={() => dispatch(fetchBooks())}>Update Progress</button>
         </div>
       </div>
     </li>
