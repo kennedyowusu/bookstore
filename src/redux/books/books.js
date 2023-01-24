@@ -5,7 +5,14 @@ const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 
 const initialState = {
-  books: [],
+  books: [
+    {
+      id: '1',
+      title: 'The Hobbit',
+      author: 'J.R.R',
+      category: 'Action',
+    },
+  ],
 };
 
 // This is a function that returns an action object
@@ -16,27 +23,14 @@ export const removeBook = createAction(REMOVE_BOOK);
 // This is a reducer function that will handle the action
 const booksReducer = createReducer(initialState, (builder) => {
   builder.addCase(addBook, (state, action) => {
-    const { title, author, category } = action.payload;
     const newBook = {
-      id:
-        state.books.length === 0
-          ? 1
-          : state.books[state.books.length - 1].id + 1,
-      title,
-      author,
-      category,
+      ...state, books: [...state.books, { ...action.payload, id: `${state.books.length + 1}` }],
     };
-    state.books.push(newBook);
+    return newBook;
   });
   builder.addCase(removeBook, (state, action) => {
-    const { id } = action.payload;
-    const updatedBookList = [
-      ...state.books.filter((book) => book.id !== id),
-    ];
-    return {
-      ...state,
-      books: updatedBookList,
-    };
+    const updatedBookList = state.books.filter((book) => book.id !== action.payload);
+    return { ...state, books: updatedBookList };
   });
   builder.addDefaultCase((state) => state);
 });
