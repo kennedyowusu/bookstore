@@ -105,7 +105,14 @@ export const removeBookFromAPI = createAsyncThunk('bookStore/books/removeBookFro
 
 // This is an async thunk that will be used to update a book from the API
 const initialState = {
-  books: [],
+  books: [
+    {
+      id: uuidv4(),
+      title: 'The Hunger Games',
+      author: 'Suz Collins',
+      category: 'Action',
+    },
+  ],
 };
 
 // This is a function that returns an action object

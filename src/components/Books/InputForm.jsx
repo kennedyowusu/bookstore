@@ -16,10 +16,14 @@ const InputForm = () => {
       setValidateForm(true);
     } else {
       setValidateForm(false);
-      dispatch(addBookToAPI({ title, author, category }));
+      dispatch(addBookToAPI({
+        title: title.trim(),
+        author: author.trim(),
+        category: category.trim(),
+      }));
       setTitle('');
       setAuthor('');
-      setCategory('Action');
+      setCategory('');
     }
   };
 
