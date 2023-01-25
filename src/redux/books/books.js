@@ -17,13 +17,12 @@ export const fetchBooks = createAsyncThunk('bookStore/books/fetchBooks',
       const response = await axios.get();
       if (response.status === 200) {
         const newArr = [];
-        const data = Object.entries(...response.data);
-        data.forEach((item) => {
+        Object.keys(...response.data).forEach((key) => {
           const obj = {
-            id: item[0],
-            title: item[1][0].title,
-            author: item[1][0].author,
-            category: item[1][0].category,
+            id: key,
+            title: response.data[key][0].title,
+            author: response.data[key][0].author,
+            category: response.data[key][0].category,
           };
           newArr.push(obj);
         });
@@ -105,14 +104,7 @@ export const removeBookFromAPI = createAsyncThunk('bookStore/books/removeBookFro
 
 // This is an async thunk that will be used to update a book from the API
 const initialState = {
-  books: [
-    {
-      id: uuidv4(),
-      title: 'The Hunger Games',
-      author: 'Suz Collins',
-      category: 'Action',
-    },
-  ],
+  books: [],
 };
 
 // This is a function that returns an action object
