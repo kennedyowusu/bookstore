@@ -102,17 +102,10 @@ export const removeBookFromAPI = createAsyncThunk('bookStore/books/removeBookFro
     return null;
   });
 
-// This is an async thunk that will be used to update a book from the API
 const initialState = {
   books: [],
 };
 
-// This is a function that returns an action object
-// export const addBook = createAction(ADD_BOOK);
-
-// export const removeBook = createAction(REMOVE_BOOK);
-
-// This is a reducer function that will handle the action
 const booksReducer = createReducer(initialState, (builder) => {
   builder.addCase(
     fetchBooks.fulfilled, (state, action) => {
