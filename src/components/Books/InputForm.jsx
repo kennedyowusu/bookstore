@@ -24,6 +24,7 @@ const InputForm = () => {
       setTitle('');
       setAuthor('');
       setCategory('');
+      console.log(`${title}, ${author}, ${category}`);
     }
   };
 
@@ -37,8 +38,8 @@ const InputForm = () => {
 
   return (
     <div>
-      <form action="" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Title" value={title} onChange={handleTitleChange} />
+      <form onSubmit={handleSubmit}>
+        <input id="title" type="text" placeholder="Title" value={title} onChange={handleTitleChange} />
         <input type="text" placeholder="Author" value={author} onChange={handleAuthorChange} />
         <select name="category" id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
           <option value="Action">Action</option>

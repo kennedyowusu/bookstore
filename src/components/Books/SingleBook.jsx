@@ -32,7 +32,7 @@ const SingleBook = ({
           <h3>{category}</h3>
 
           <button type="button" onClick={handleRemoveBook}>
-            Remove
+            Delete
           </button>
         </div>
         <div>
