@@ -5,9 +5,6 @@ import axios from 'axios';
 // Base URL for the API
 axios.defaults.baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/CcJg6US2jyLehx3DHzq9/books';
 
-// https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/CcJg6US2jyLehx3DHzq9/books
-
-// This is an async thunk that will be used to fetch the books from the API
 export const fetchBooks = createAsyncThunk(
   'bookStore/books/fetchBooks',
   async (thunkAPI) => {
@@ -46,7 +43,6 @@ export const fetchBooks = createAsyncThunk(
   },
 );
 
-// This is an async thunk that will be used to add a book to the API
 export const addBookToAPI = createAsyncThunk(
   'bookStore/books/addBookToAPI',
   async (book, thunkAPI) => {
@@ -66,7 +62,6 @@ export const addBookToAPI = createAsyncThunk(
         throw Error('Failed to post the book!');
       }
 
-      // thunkAPI.dispatch(addBookToAPI.fulfilled(response.data));
       return newBook;
     } catch (error) {
       thunkAPI.dispatch(addBookToAPI.rejected());
@@ -75,7 +70,6 @@ export const addBookToAPI = createAsyncThunk(
   },
 );
 
-// This is an async thunk that will be used to remove a book from the API
 export const removeBookFromAPI = createAsyncThunk(
   'bookStore/books/removeBookFromAPI',
   async (book, thunkAPI) => {
@@ -101,9 +95,8 @@ const initialState = {
 const booksReducer = createReducer(initialState, (builder) => {
   builder.addCase(fetchBooks.fulfilled, (state, action) => {
     const newBook = {
-      // add the new book to the beginning of the array instead of the end
       ...state,
-      books: [{ ...action.payload }, ...state.books],
+      books: [...action.payload, ...state.books],
     };
     return newBook;
   });
