@@ -32,14 +32,16 @@ const SingleBook = ({
           <h3>{category}</h3>
 
           <button type="button" onClick={handleRemoveBook}>
-            Delete
+            Remove
           </button>
         </div>
         <div>
           <span>Progress 80%</span>
         </div>
         <div>
-          <button type="button" onClick={() => dispatch(fetchBooks())}>Update Progress</button>
+          <button type="button" onClick={() => dispatch(fetchBooks())}>
+            Update Progress
+          </button>
         </div>
       </div>
     </li>
