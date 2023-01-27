@@ -48,39 +48,37 @@ export const fetchBooks = createAsyncThunk(
 );
 
 // This is an async thunk that will be used to add a book to the API
-export const addBookToAPI = createAsyncThunk('bookStore/books/addBookToAPI',
+export const addBookToAPI = createAsyncThunk(
+  'bookStore/books/addBookToAPI',
   async (book, thunkAPI) => {
+    const newBook = {
+      item_id: uuidv4(),
+      title: book.title,
+      author: book.author,
+      category: book.category,
+    };
     try {
       thunkAPI.dispatch(addBookToAPI.pending());
       const response = await axios.post('', {
-        item_id: uuidv4(),
-        title: book.title,
-        author: book.author,
-        category: book.category,
+        ...newBook,
       });
-      console.log(`This new ${book} ${response.data}`);
-      if (response.status === 201) {
-        thunkAPI.dispatch(addBookToAPI.fulfilled(response.data));
-        return response.data || [];
-      } if (response.status === 404) {
-        thunkAPI.dispatch(addBookToAPI.rejected());
-        throw new Error('404 - Not Found');
-      } else if (response.status === 500) {
-        thunkAPI.dispatch(addBookToAPI.rejected());
-        throw new Error('500 - Internal Server Error');
-      } else if (!response.data) {
-        thunkAPI.dispatch(addBookToAPI.rejected());
-        throw new Error('No data found');
+
+      if (response.status !== 201) {
+        throw Error('Failed to post the book!');
       }
+
+      // thunkAPI.dispatch(addBookToAPI.fulfilled(response.data));
+      return newBook;
     } catch (error) {
       thunkAPI.dispatch(addBookToAPI.rejected());
       return thunkAPI.rejectWithValue(error.message);
     }
-    return null;
-  });
+  },
+);
 
 // This is an async thunk that will be used to remove a book from the API
-export const removeBookFromAPI = createAsyncThunk('bookStore/books/removeBookFromAPI',
+export const removeBookFromAPI = createAsyncThunk(
+  'bookStore/books/removeBookFromAPI',
   async (book, thunkAPI) => {
     try {
       thunkAPI.dispatch(removeBookFromAPI.pending());
@@ -88,7 +86,8 @@ export const removeBookFromAPI = createAsyncThunk('bookStore/books/removeBookFro
       if (response.status === 201) {
         thunkAPI.dispatch(removeBookFromAPI.fulfilled(response.data));
         return response.data || [];
-      } if (response.status === 404) {
+      }
+      if (response.status === 404) {
         thunkAPI.dispatch(removeBookFromAPI.rejected());
         throw new Error('404 - Not Found');
       } else if (response.status === 500) {
@@ -103,22 +102,22 @@ export const removeBookFromAPI = createAsyncThunk('bookStore/books/removeBookFro
       return thunkAPI.rejectWithValue(error.message);
     }
     return null;
-  });
+  },
+);
 
 const initialState = {
   books: [],
 };
 
 const booksReducer = createReducer(initialState, (builder) => {
-  builder.addCase(
-    fetchBooks.fulfilled, (state, action) => {
-      const newBook = {
+  builder.addCase(fetchBooks.fulfilled, (state, action) => {
+    const newBook = {
       // add the new book to the beginning of the array instead of the end
-        ...state, books: [{ ...action.payload }, ...state.books],
-      };
-      return newBook;
-    },
-  );
+      ...state,
+      books: [{ ...action.payload }, ...state.books],
+    };
+    return newBook;
+  });
   builder.addCase(removeBookFromAPI.fulfilled, (state, action) => {
     const updatedBookList = [...state.books].filter(
       (book) => book.id !== action.payload,
