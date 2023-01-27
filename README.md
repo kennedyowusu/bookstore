@@ -26,8 +26,9 @@
 
 # 📖 Book store <a name="about-project"></a>
 
-> "Book store" is a website for storing details about book. 
+> "Book store" is a website for storing details about book.
  It is an MVP version that allows users to:
+
 - Display a list of books.
 - Add a book.
 - Remove a selected book.
@@ -57,7 +58,6 @@
 - **Add/remove book**
 - **User Interface**
 - **React**
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -137,9 +137,7 @@ Example command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-
 - [ ] **[Add categories section in the form input and display books according to the same]**
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -156,7 +154,6 @@ Feel free to check the [issues page](../../issues/).
 <!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
-
 
 If you like this project give it a star
 
@@ -182,6 +179,6 @@ Will update soon...
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT]([./LICENSE](https://github.com/kennedyowusu/bookstore/blob/develop/LICENSE.md)) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

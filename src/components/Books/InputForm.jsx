@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../../redux/books/books';
+import { addBookToAPI } from '../../redux/books/books';
 
 const InputForm = () => {
   const [title, setTitle] = useState('');
@@ -16,10 +16,15 @@ const InputForm = () => {
       setValidateForm(true);
     } else {
       setValidateForm(false);
-      dispatch(addBook({ title, author, category }));
+      dispatch(addBookToAPI({
+        title: title.trim(),
+        author: author.trim(),
+        category: category.trim(),
+      }));
       setTitle('');
       setAuthor('');
-      setCategory('Action');
+      setCategory('');
+      console.log(`${title}, ${author}, ${category}`);
     }
   };
 
@@ -33,8 +38,8 @@ const InputForm = () => {
 
   return (
     <div>
-      <form action="" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Title" value={title} onChange={handleTitleChange} />
+      <form onSubmit={handleSubmit}>
+        <input id="title" type="text" placeholder="Title" value={title} onChange={handleTitleChange} />
         <input type="text" placeholder="Author" value={author} onChange={handleAuthorChange} />
         <select name="category" id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
           <option value="Action">Action</option>

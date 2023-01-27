@@ -1,17 +1,15 @@
 import { createReducer, createAction } from '@reduxjs/toolkit';
 
-export const UPDATE_STATUS = 'bookStore/categories/UPDATE_STATUS';
+export const UPDATE_STATUS = createAction('bookStore/categories/UPDATE_STATUS');
 
 const initialState = {
-  categories: [],
+  status: '',
 };
 
-const updateStatus = createAction(UPDATE_STATUS);
-
 const categoriesReducer = createReducer(initialState, (builder) => {
-  builder.addCase(updateStatus, (state) => {
+  builder.addCase(UPDATE_STATUS, (state) => {
     const updatedCategories = {
-      ...state.categories,
+      ...state,
       status: 'Under Construction',
     };
     return updatedCategories;
