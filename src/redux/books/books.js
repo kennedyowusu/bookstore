@@ -80,28 +80,19 @@ export const addBookToAPI = createAsyncThunk(
 export const removeBookFromAPI = createAsyncThunk(
   'bookStore/books/removeBookFromAPI',
   async (book, thunkAPI) => {
+    console.log(`removed book ${book}`);
     try {
       thunkAPI.dispatch(removeBookFromAPI.pending());
       const response = await axios.delete(`/${book}`);
-      if (response.status === 201) {
-        thunkAPI.dispatch(removeBookFromAPI.fulfilled(response.data));
-        return response.data || [];
+      if (response.status !== 201) {
+        throw Error('Failed to delete the book!');
       }
-      if (response.status === 404) {
-        thunkAPI.dispatch(removeBookFromAPI.rejected());
-        throw new Error('404 - Not Found');
-      } else if (response.status === 500) {
-        thunkAPI.dispatch(removeBookFromAPI.rejected());
-        throw new Error('500 - Internal Server Error');
-      } else if (!response.data) {
-        thunkAPI.dispatch(removeBookFromAPI.rejected());
-        throw new Error('No data found');
-      }
+      thunkAPI.dispatch(removeBookFromAPI.fulfilled(book));
+      return book;
     } catch (error) {
       thunkAPI.dispatch(removeBookFromAPI.rejected());
       return thunkAPI.rejectWithValue(error.message);
     }
-    return null;
   },
 );
 
