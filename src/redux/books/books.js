@@ -25,7 +25,6 @@ export const fetchBooks = createAsyncThunk(
           };
           newArr.push(obj);
         });
-        console.log(`newArr: ${newArr}`);
         thunkAPI.dispatch(fetchBooks.fulfilled(newArr));
         return newArr || [];
       }
@@ -80,7 +79,6 @@ export const addBookToAPI = createAsyncThunk(
 export const removeBookFromAPI = createAsyncThunk(
   'bookStore/books/removeBookFromAPI',
   async (book, thunkAPI) => {
-    console.log(`removed book ${book}`);
     try {
       thunkAPI.dispatch(removeBookFromAPI.pending());
       const response = await axios.delete(`/${book}`);
