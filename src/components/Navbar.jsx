@@ -1,37 +1,28 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import navLink from '../utils/constants';
+import '../styles/navbar.css';
+import IconButton from './IconButton';
 
 const Navbar = () => (
-  <div>
-    <nav className="">
-      <div className="">
-        <div className="">
-          <div
-            className=""
-          >
-            <h2 className="">BookStore CMS</h2>
-          </div>
-        </div>
+  <nav className="navbar">
+    <NavLink className="brand">
+      <h2 className="brand-title">BookStore CMS</h2>
+    </NavLink>
 
-        <div className="">
-          <ul className="">
-            {navLink.map((link) => (
-              <li key={link.name} className="">
-                <NavLink
-                  to={link ? link.link : '/'}
-                  className=""
-                >
-                  {link.name}
-                </NavLink>
-
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
+    <div className="nav-link-container">
+      <ul className="nav-links">
+        {navLink.map((link) => (
+          <li key={link.name} className="nav-link">
+            <NavLink to={link ? link.link : '/'} className="active-link">
+              {link.name}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+      <IconButton name="person" />
+    </div>
+  </nav>
 );
 
 export default Navbar;
