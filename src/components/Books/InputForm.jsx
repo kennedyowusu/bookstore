@@ -48,6 +48,7 @@ const InputForm = () => {
           value={title}
           onChange={handleTitleChange}
           className="title"
+          required
         />
         <input
           type="text"
@@ -55,6 +56,7 @@ const InputForm = () => {
           value={author}
           onChange={handleAuthorChange}
           className="author"
+          required
         />
         <select
           name="category"
@@ -71,11 +73,6 @@ const InputForm = () => {
         <button type="submit" className="primary-button-big">
           Add Book
         </button>
-        {validateForm ? (
-          <p className="error">
-            Please fill in all fields
-          </p>
-        ) : null}
       </form>
     </div>
   );
