@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBookToAPI } from '../../redux/books/books';
+import '../../styles/input_field.css';
 
 const InputForm = () => {
   const [title, setTitle] = useState('');
@@ -24,7 +25,6 @@ const InputForm = () => {
       setTitle('');
       setAuthor('');
       setCategory('');
-      console.log(`${title}, ${author}, ${category}`);
     }
   };
 
@@ -37,26 +37,45 @@ const InputForm = () => {
   };
 
   return (
-    <div>
+    <div className="form-container">
+      <hr className="horizontal-divider" />
+      <p className="form-title">Add New Book</p>
       <form onSubmit={handleSubmit}>
-        <input id="title" type="text" placeholder="Title" value={title} onChange={handleTitleChange} />
-        <input type="text" placeholder="Author" value={author} onChange={handleAuthorChange} />
-        <select name="category" id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
+        <input
+          id="title"
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={handleTitleChange}
+          className="title"
+        />
+        <input
+          type="text"
+          placeholder="Author"
+          value={author}
+          onChange={handleAuthorChange}
+          className="author"
+        />
+        <select
+          name="category"
+          id="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="category"
+        >
           <option value="Action">Action</option>
           <option value="Biography">Biography</option>
           <option value="History">History</option>
           <option value="Sci-Fi">Sci-Fi</option>
         </select>
-        <button type="submit">Add Book</button>
-        {
-          validateForm
-            ? (
-              <p className="error" style={{ color: 'red' }}>
-                Please fill in all fields
-              </p>
-            )
-            : null
-        }
+        <button type="submit" className="primary-button-big">
+          Add Book
+        </button>
+        {validateForm ? (
+          <p className="error" style={{ color: 'red' }}>
+            Please fill in all fields
+          </p>
+        ) : null}
       </form>
     </div>
   );
