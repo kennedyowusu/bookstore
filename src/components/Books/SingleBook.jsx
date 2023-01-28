@@ -13,18 +13,7 @@ const SingleBook = ({
   };
 
   return (
-    <li
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        listStyle: 'none',
-        border: '1px solid #e8e8e8',
-        padding: '1rem',
-        margin: '1rem',
-      }}
-      id={id}
-    >
+    <li id={id}>
       <div>
         <div>
           <h4>{title}</h4>

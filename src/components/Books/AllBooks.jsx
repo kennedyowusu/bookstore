@@ -13,18 +13,15 @@ const ShowBook = () => {
 
   return (
     <div>
-      {books.map((book) => {
-        console.log(book);
-        return (
-          <SingleBook
-            key={book.id}
-            id={book.id}
-            title={book.title}
-            author={book.author}
-            category={book.category}
-          />
-        );
-      })}
+      {books.map((book) => (
+        <SingleBook
+          key={book.id}
+          id={book.id}
+          title={book.title}
+          author={book.author}
+          category={book.category}
+        />
+      ))}
       {
         books.length === 0 && (
           <h3>No books added yet!!</h3>
