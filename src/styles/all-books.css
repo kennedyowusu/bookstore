@@ -1,5 +1,5 @@
 .all-books-container {
- padding: 4%;
+  padding: 4%;
 }
 
 .books-list {
@@ -149,15 +149,20 @@
   width: 14rem;
 }
 
-.current-chapter-label {
-  font-size: 0.813rem;
+.chapter-slogan {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.875rem;
   opacity: 0.5;
+  text-transform: uppercase;
 }
 
-.current-chapter {
+.chapter-title {
   margin-top: 0.438rem;
   font-size: 1rem;
   letter-spacing: -0.4px;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  color: #121212;
 }
 
 .current-chapter,

@@ -96,10 +96,8 @@ const initialState = {
       title: 'The Hunger Games',
       author: 'Suzanne Collins',
       percentage: '64',
-      progress: {
-        currentChapter: 'Chapter 17',
-        completed: '64',
-      },
+      chapterSlogan: 'Current Chapter',
+      chapterTitle: 'Chapter 17',
     },
     {
       item_id: 'mock-2',
@@ -107,10 +105,8 @@ const initialState = {
       title: 'Dune',
       author: 'Frank Herbert',
       percentage: '8',
-      progress: {
-        currentChapter: 'Chapter 3: "A Lesson Learned"',
-        completed: '8',
-      },
+      chapterSlogan: 'Current Chapter',
+      chapterTitle: 'Chapter 3: "A Lesson Learned"',
     },
     {
       item_id: 'mock-3',
@@ -118,10 +114,8 @@ const initialState = {
       title: 'Capital in the Twenty-First Century',
       author: 'Suzanne Collins',
       percentage: '0',
-      progress: {
-        currentChapter: 'Introduction',
-        completed: '0',
-      },
+      chapterSlogan: 'Current Chapter',
+      chapterTitle: 'Introduction',
     },
   ],
 };

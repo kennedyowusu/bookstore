@@ -8,8 +8,8 @@ const SingleBook = ({
   title,
   author,
   percentage,
-  currentChapter,
-  progress,
+  chapterSlogan,
+  chapterTitle,
   category,
 }) => {
   const dispatch = useDispatch();
@@ -58,8 +58,8 @@ const SingleBook = ({
             <div className="progress-divider" />
             <div className="current-chapter-container">
               <div>
-                <p className="current-chapter-label">{currentChapter}</p>
-                <p className="current-chapter">{progress}</p>
+                <p className="chapter-slogan">{chapterSlogan}</p>
+                <p className="chapter-title">{chapterTitle}</p>
               </div>
               <div>
                 <button type="button" className="primary-button">
@@ -79,9 +79,9 @@ SingleBook.propTypes = {
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  progress: PropTypes.string.isRequired,
   percentage: PropTypes.number.isRequired,
-  currentChapter: PropTypes.string.isRequired,
+  chapterSlogan: PropTypes.string.isRequired,
+  chapterTitle: PropTypes.string.isRequired,
 };
 
 export default SingleBook;

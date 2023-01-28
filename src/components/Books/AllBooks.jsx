@@ -23,8 +23,8 @@ const ShowBook = () => {
             author={book.author}
             category={book.category}
             percentage={book.percentage}
-            currentChapter={book.progress.currentChapter}
-            progress={book.progress.completed}
+            chapterSlogan={book.chapterSlogan}
+            chapterTitle={book.chapterTitle}
           />
         ))}
         {books.length === 0 && <h3>No books added yet!!</h3>}
