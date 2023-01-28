@@ -7,25 +7,19 @@ const InputForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [category, setCategory] = useState('Action');
-  const [validateForm, setValidateForm] = useState(false);
 
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (title === '' || author === '') {
-      setValidateForm(true);
-    } else {
-      setValidateForm(false);
-      dispatch(addBookToAPI({
-        title: title.trim(),
-        author: author.trim(),
-        category: category.trim(),
-      }));
-      setTitle('');
-      setAuthor('');
-      setCategory('');
-    }
+    dispatch(addBookToAPI({
+      title: title.trim(),
+      author: author.trim(),
+      category: category.trim(),
+    }));
+    setTitle('');
+    setAuthor('');
+    setCategory('');
   };
 
   const handleTitleChange = (e) => {
