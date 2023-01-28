@@ -89,7 +89,41 @@ export const removeBookFromAPI = createAsyncThunk(
 );
 
 const initialState = {
-  books: [],
+  books: [
+    {
+      item_id: 'mock-1',
+      category: 'Action',
+      title: 'The Hunger Games',
+      author: 'Suzanne Collins',
+      percentage: '64',
+      progress: {
+        currentChapter: 'Chapter 17',
+        completed: '64',
+      },
+    },
+    {
+      item_id: 'mock-2',
+      category: 'Science Fiction',
+      title: 'Dune',
+      author: 'Frank Herbert',
+      percentage: '8',
+      progress: {
+        currentChapter: 'Chapter 3: "A Lesson Learned"',
+        completed: '8',
+      },
+    },
+    {
+      item_id: 'mock-3',
+      category: 'Economy',
+      title: 'Capital in the Twenty-First Century',
+      author: 'Suzanne Collins',
+      percentage: '0',
+      progress: {
+        currentChapter: 'Introduction',
+        completed: '0',
+      },
+    },
+  ],
 };
 
 const booksReducer = createReducer(initialState, (builder) => {

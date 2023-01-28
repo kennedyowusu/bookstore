@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import SingleBook from './SingleBook';
 import { fetchBooks } from '../../redux/books/books';
+import '../../styles/all-books.css';
 
 const ShowBook = () => {
   const books = useSelector((state) => state.books.books);
@@ -12,21 +13,22 @@ const ShowBook = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      {books.map((book) => (
-        <SingleBook
-          key={book.id}
-          id={book.id}
-          title={book.title}
-          author={book.author}
-          category={book.category}
-        />
-      ))}
-      {
-        books.length === 0 && (
-          <h3>No books added yet!!</h3>
-        )
-      }
+    <div className="all-books-container">
+      <div className="books-list">
+        {books.map((book) => (
+          <SingleBook
+            key={book.id}
+            id={book.id}
+            title={book.title}
+            author={book.author}
+            category={book.category}
+            percentage={book.percentage}
+            currentChapter={book.progress.currentChapter}
+            progress={book.progress.completed}
+          />
+        ))}
+        {books.length === 0 && <h3>No books added yet!!</h3>}
+      </div>
     </div>
   );
 };
