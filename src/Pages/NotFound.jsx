@@ -1,18 +1,12 @@
 import React from 'react';
+import '../styles/not-found.css';
 
 const NotFound = () => (
   <div
-    className="
-    flex items-center justify-center
-    h-screen
-    "
+    className="not-found-container"
   >
     <h1
-      className="
-      text-9xl
-      font-bold
-      text-[#317773]
-      "
+      className="not-found-text"
     >
       {' '}
       404 - Not Found

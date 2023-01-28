@@ -7,7 +7,7 @@ import IconButton from './IconButton';
 const Navbar = () => (
   <nav className="navbar">
     <NavLink className="brand">
-      <h2 className="brand-title">BookStore CMS</h2>
+      <h2 className="brand-title">Bookstore CMS</h2>
     </NavLink>
 
     <div className="nav-link-container">

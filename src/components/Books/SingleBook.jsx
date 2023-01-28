@@ -48,8 +48,8 @@ const SingleBook = ({
             <div className="circular-progress-container">
               <div className="circular-progress" />
             </div>
-            <div className="progress-stat">
-              <p className="percent-complete">
+            <div>
+              <p className="percentage-complete">
                 {percentage}
                 %
               </p>

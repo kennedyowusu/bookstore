@@ -27,7 +27,7 @@ const ShowBook = () => {
             chapterTitle={book.chapterTitle}
           />
         ))}
-        {books.length === 0 && <h3>No books added yet!!</h3>}
+        {books.length === 0 && <h3 className="no-books">No books added yet!!</h3>}
       </div>
     </div>
   );
