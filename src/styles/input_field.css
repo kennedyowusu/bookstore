@@ -91,3 +91,7 @@ form {
   margin: -6.5rem 0 1.813rem;
   opacity: 0.5;
 }
+
+.error {
+  color: #ff0000;
+}

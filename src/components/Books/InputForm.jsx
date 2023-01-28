@@ -72,7 +72,7 @@ const InputForm = () => {
           Add Book
         </button>
         {validateForm ? (
-          <p className="error" style={{ color: 'red' }}>
+          <p className="error">
             Please fill in all fields
           </p>
         ) : null}
