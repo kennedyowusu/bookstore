@@ -46,6 +46,10 @@ form {
   color: #121212;
 }
 
+.category {
+  width: 15%;
+}
+
 .title,
 .author,
 .category:focus {
@@ -58,10 +62,6 @@ form {
 
 .author {
   width: 25%;
-}
-
-.category {
-  width: 15%;
 }
 
 .primary-button-big {
@@ -81,7 +81,7 @@ form {
 
 .primary-button-big:hover {
   background-color: #006fd6;
-  transition: all 0.2s ease-in-out; 
+  transition: all 0.2s ease-in-out;
 }
 
 .horizontal-divider {

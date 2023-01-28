@@ -13,7 +13,7 @@
   font-size: 1.875rem;
   font-weight: 700;
   color: #0290ff;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .nav-link-container {
@@ -34,7 +34,7 @@
 .active-link {
   opacity: 1;
   color: #121212;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .nav-link {
