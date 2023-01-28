@@ -1,10 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { removeBookFromAPI, fetchBooks } from '../../redux/books/books';
+import { removeBookFromAPI } from '../../redux/books/books';
 
 const SingleBook = ({
-  id, title, author, category,
+  id,
+  title,
+  author,
+  percentage,
+  chapterSlogan,
+  chapterTitle,
+  category,
 }) => {
   const dispatch = useDispatch();
 
@@ -13,35 +19,55 @@ const SingleBook = ({
   };
 
   return (
-    <li
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        listStyle: 'none',
-        border: '1px solid #e8e8e8',
-        padding: '1rem',
-        margin: '1rem',
-      }}
-      id={id}
-    >
-      <div>
-        <div>
-          <h4>{title}</h4>
-          <h3>{author}</h3>
-          <h3>{category}</h3>
-
-          <button type="button" onClick={handleRemoveBook}>
-            Remove
-          </button>
-        </div>
-        <div>
-          <span>Progress 80%</span>
-        </div>
-        <div>
-          <button type="button" onClick={() => dispatch(fetchBooks())}>
-            Update Progress
-          </button>
+    <li className="list-container">
+      <div className="book-container">
+        <div className="book-content">
+          <div>
+            <h4 className="book-category">{category}</h4>
+            <h2 className="book-title">{title}</h2>
+            <h6 className="book-author">{author}</h6>
+            <div className="action-buttons">
+              <button type="button" className="button-outline">
+                Comments
+              </button>
+              <div className="vertical-divider" />
+              <button
+                type="button"
+                onClick={handleRemoveBook}
+                className="button-outline"
+              >
+                Remove
+              </button>
+              <div className="vertical-divider" />
+              <button type="button" className="button-outline">
+                Edit
+              </button>
+            </div>
+          </div>
+          <div className="progress-container">
+            <div className="circular-progress-container">
+              <div className="circular-progress" />
+            </div>
+            <div className="progress-stat">
+              <p className="percent-complete">
+                {percentage}
+                %
+              </p>
+              <p className="completed">Completed</p>
+            </div>
+            <div className="progress-divider" />
+            <div className="current-chapter-container">
+              <div>
+                <p className="chapter-slogan">{chapterSlogan}</p>
+                <p className="chapter-title">{chapterTitle}</p>
+              </div>
+              <div>
+                <button type="button" className="primary-button">
+                  Update Progress
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </li>
@@ -50,9 +76,12 @@ const SingleBook = ({
 
 SingleBook.propTypes = {
   id: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
+  percentage: PropTypes.number.isRequired,
+  chapterSlogan: PropTypes.string.isRequired,
+  chapterTitle: PropTypes.string.isRequired,
 };
 
 export default SingleBook;
